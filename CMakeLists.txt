@@ -7,4 +7,5 @@ add_executable(Proyecto_1_Progra_2 main.cpp
         SistemaException.h
         ArchivoException.h
         FormatoException.h
-        OperacionException.h)
+        OperacionException.h
+        Incidencia.h)
