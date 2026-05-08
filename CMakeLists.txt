@@ -8,4 +8,10 @@ add_executable(Proyecto_1_Progra_2 main.cpp
         ArchivoException.h
         FormatoException.h
         OperacionException.h
-        Incidencia.h)
+        Incidencia.h
+        Equipo.h
+        EquipoLaboratorio.h
+        IEstrategiaMantenimiento.h
+        EquipoCritico.h
+        MantenimientoPreventivo.h
+        MantenimientoCorrectivo.h)
