@@ -25,8 +25,8 @@ public:
         return *id;
     }
 
-    void setId(const string &id) {
-        this->id = id;
+    void setId(string &id) {
+        this->id = &id;
     }
 
     int getDiaReporte() const {
