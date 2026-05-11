@@ -1,5 +1,5 @@
 //
-// Created by N00159834 on 4/5/2026.
+// Created by fabri on 12/4/2026.
 //
 
 #ifndef PROYECTO_1_PROGRA_2_SISTEMAEXCEPTION_H
@@ -10,16 +10,16 @@ using namespace std;
 
 class SistemaException : public std::exception {
 protected:
-    string message;
+    string msj;
 public:
-    SistemaException(string message) {
-        this->message = message;
+    SistemaException(string msj) {
+        this->msj = msj;
     }
     SistemaException() {
-        this->message = "Error sistema";
+        this->msj = "Error sistema";
     }
     string message() {
-        return this->message;
+        return this->msj;
     }
 
 };

@@ -12,6 +12,11 @@ add_executable(Proyecto_1_Progra_2 main.cpp
         Equipo.h
         EquipoLaboratorio.h
         IEstrategiaMantenimiento.h
-        EquipoCritico.h
         MantenimientoPreventivo.h
-        MantenimientoCorrectivo.h)
+        MantenimientoCorrectivo.h
+        GeneradorLogs.h
+        CargadorArchivos.h
+        PriorizadorEquipos.h
+        GestorSimulacion.h
+        GeneradorArchivoDatos.h
+)

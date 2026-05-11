@@ -4,27 +4,25 @@
 
 #ifndef PROYECTO_1_PROGRA_2_MANTENIMIENTOCORRECTIVO_H
 #define PROYECTO_1_PROGRA_2_MANTENIMIENTOCORRECTIVO_H
-#include "IEstrategiaMantenimiento.h"
-#include "Equipo.h"
+#include "MantenimientoPreventivo.h"
 
 
-class MantenimientoCorrectivo : public IEstrategiaMantenimiento {
-private:
-    bool resuelveIncidencias = true;
-    int incidenciasCrticiasResueltas;
+
+class MantenimientoCorrectivo : public MantenimientoPreventivo {
 public:
-    void ejectutarCorrectivo(Equipo* equipo) override {
-        if (equipo = nullptr)
-        throw OperacionException();
+    void ejecutar(EquipoLaboratorio* equipo) override {
+        if (equipo == nullptr)
+        throw OperacionException("Equipo nulo no se puede realizar mantenimiento");
 
 
         for (auto* inc : equipo->getIncidencias()) {
-            if (!inc->estaResuelta()) {
-                inc->resolver();
-                incidenciasCrticiasResueltas++;
+            if (inc->getResuelta() == false) {
+                equipo->resolverIncidencias();
+                equipo->limpiarIncidenciasResueltas();
+                equipo->realizarMantenimiento();
             }
         }
-        //TERMINAR
+        //TERMINAR, usa criticidad y tiempoinactivo
     }
 
     string getTipoMantenimiento() override{

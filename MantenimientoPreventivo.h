@@ -13,8 +13,17 @@ class MantenimientoPreventivo : public IEstrategiaMantenimiento {
 private:
     double mejoraMinima = 0;
 public:
-    void ejectutarPreventivo(Equipo* equipo) override {
-        equipo->realizarMantenimiento(mejoraMinima);
+    void ejecutar(EquipoLaboratorio* equipo) override {
+        if (equipo == nullptr)
+            throw OperacionException("Equipo nulo no se puede realizar mantenimiento");
+
+        for (auto* inc : equipo->getIncidencias()) {
+            if (inc->getResuelta() == false) {
+                equipo->resolverIncidencias();
+                equipo->limpiarIncidenciasResueltas();
+                equipo->realizarMantenimiento();
+            }
+        }
     }
     string getTipoMantenimiento() override{
         return "Mantenimiento Preventivo";

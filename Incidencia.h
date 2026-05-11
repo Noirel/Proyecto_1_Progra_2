@@ -1,29 +1,28 @@
 //
-// Created by N00159834 on 4/5/2026.
+// Created by N00159834 on 18/4/2026.
 //
 
 #ifndef PROYECTO_1_PROGRA_2_INCIDENCIA_H
 #define PROYECTO_1_PROGRA_2_INCIDENCIA_H
-
+#include <iostream>
+using namespace std;
 
 class Incidencia {
 private:
-    string id;
-    enum NivelSeveridad {
-        No_Tiene = 0,
-        Baja = 1,
-        Media = 5,
-        Alta = 9
-    };
-    NivelSeveridad severidad;
-    int diaReporte;
+    string *id;
+    int *diaReporte;
     bool resuelta;
 public:
-    Incidencia(const string &id, int dia_reporte, bool resuelta) : id(id), diaReporte(dia_reporte), resuelta(resuelta), severidad(No_Tiene) {
+
+    Incidencia(string id, int dia_reporte, bool resuelta) : id(new string(id)), diaReporte(new int(dia_reporte)), resuelta(resuelta) {}
+
+    ~Incidencia() {
+        delete id;
+        delete diaReporte;
     }
 
     string getID() const {
-        return id;
+        return *id;
     }
 
     void setId(const string &id) {
@@ -31,11 +30,11 @@ public:
     }
 
     int getDiaReporte() const {
-        return diaReporte;
+        return *diaReporte;
     }
 
-    void setDiaReporte(int diaReporte) {
-        this->diaReporte = diaReporte;
+    void setDiaReporte(int &diaReporte) {
+        this->diaReporte = &diaReporte;
     }
 
     bool getResuelta() const {
@@ -46,13 +45,6 @@ public:
         this->resuelta = resuelta;
     }
 
-    NivelSeveridad getSeveridad() const {
-        return severidad;
-    }
-
-    void setSeveridad(int severidad) {
-        this->severidad = static_cast<NivelSeveridad>(severidad);
-    }
 
 };
 
